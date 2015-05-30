@@ -24,6 +24,11 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/creative.css" type="text/css">
+    
+
+        <script type="text/javascript" src="js/banner1.js"></script>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="js/modernizr.custom.41769.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -34,7 +39,7 @@
 
 </head>
 
-<body id="page-top">
+<body>
 
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
@@ -50,8 +55,12 @@
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">   
+
                 <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" data-toggle="collapse" href="#page-top">Return to Top</a>
+                    </li>
                     <li>
                         <a class="page-scroll" href="#about">About</a>
                     </li>
@@ -68,10 +77,14 @@
         <!-- /.container-fluid -->
     </nav>
 
-    <header>
+    <header id="page-top">
         <div class="header-content">
+            <div id="wrapper" class="wrapper">
+                <canvas id="canvas-banner" class="inactive">
+                    <img src="images/fallback1.png" />
+                </canvas>
+            </div>
             <div class="header-content-inner">
-                <h1>TeachEasy & LearnEasy</h1>
                 <hr>
                 <p><a href="#LearnEasy"><img style="width: 324px; height: 368px;" src="/img/LE.png"></a>
                    <a href="#TeachEasy"><img style="width: 324px; height: 368px;" src="/img/TE.png"></a>
@@ -289,7 +302,52 @@
     <script src="js/wow.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="js/creative.js"></script>
+<script type="text/javascript">
+			
+			if(Modernizr.canvas) {
+			
+				var wrapper = document.getElementById('wrapper'),
+					loading	= document.createElement('div');
+				
+				loading.className = 'loading';
+				loading.setAttribute('id','loading');
+				loading.innerHTML = 'Loading...';
+
+				wrapper.appendChild(loading);
+			
+				google.load('webfont','1');
+				google.setOnLoadCallback(function() {
+					WebFont.load({
+						google: {
+							families: ['Jockey One']
+						},
+						active: function() {
+							setTimeout(function() {
+								
+								loading.style.display = 'none';
+								
+								var banner = new Banner();
+								banner.initialize('canvas-banner');
+								
+								document.getElementById('font').style.display = 'block';
+							
+							}, 1000);
+						},
+						inactive: function() {
+							
+							// google font not loaded, we will use the default font : Arial (set in baner.js file)
+							loading.style.display = 'none';
+							
+							var banner = new Banner();
+							banner.initialize('canvas-banner');
+							
+						}
+					});
+				});
+			
+			}
+			
+        </script>
 
 </body>
 
