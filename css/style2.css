@@ -2,8 +2,8 @@
 #container_demo{
 	 text-align: left;
 	 margin: 0;
-	 padding: 0;
-	 margin: 0 auto;
+	 padding: 0px 0px 0px 0px;
+	 margin: 0 0;
 	 font-family: "Trebuchet MS","Myriad Pro",Arial,sans-serif;
 }
 
@@ -34,11 +34,11 @@ a.hiddenanchor{
 }
 /** The wrapper that will contain our two forms **/
 #wrapper{
-	width: 100%;
+	padding: 0px 0% 0px 0%;
 	right: 0px;
 	min-height: 560px;	
-	margin: 0px auto;	
-	width: 40%;
+	margin: auto auto;	
+	min-width: 300px;
 	position: relative;	
 }
 /**** Styling the form elements **/
@@ -73,6 +73,8 @@ a.hiddenanchor{
 	content: ' ';
 	display: block;
 	width: 100%;
+    margin-left: 0;
+    margin-right: auto;
 	height: 2px;
 	margin-top: 10px;
 	background: -moz-linear-gradient(left, rgba(147,184,189,0) 0%, rgba(147,184,189,0.8) 20%, rgba(147,184,189,1) 53%, rgba(147,184,189,0.8) 79%, rgba(147,184,189,0) 100%); 
@@ -113,7 +115,7 @@ input {
 #wrapper input:not([type="checkbox"]){
 	width: 92%;
 	margin-top: 4px;
-	padding: 10px 5px 10px 32px;	
+	padding: 10px 1% 10px 32px;	
 	border: 1px solid rgb(178, 178, 178);
 	-webkit-appearance: textfield;
 	-webkit-box-sizing: content-box;
@@ -294,8 +296,8 @@ p.change_link{
 #login{
 	position: absolute;
 	top: 0px;
-	width: 88%;	
-	padding: 18px 6% 60px 6%;
+	width: 100%;	
+	padding: 18px 5px 60px 5px;
 	margin: 0 0 35px 0;
 	background: rgb(247, 247, 247);
 	border: 1px solid rgba(147, 184, 189,0.8);
